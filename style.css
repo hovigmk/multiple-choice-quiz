@@ -1,0 +1,22 @@
+body {
+  background-color: #05c5ff;
+}
+
+.start_btn {
+  position: absolute;
+  position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start_btn button {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 15px 30px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15em;
+  border-color: whi;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

@@ -5,8 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Quiz Challenge</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple"
+    />
   </head>
   <body>
     <div class="start_btn"><button>Start Quiz</button></div>
+    <div class="quiz-box">
+      <header>
+        <div class="Quiz Questions">Quiz Questions</div>
+        <!-- breaking down the timer box for styling -->
+        <div class="timer">
+          <div class="timer text">Time left: 60</div>
+        </div>
+      </header>
+      <section>
+        <div class="que_text">
+          <span>Question 1</span>
+        </div>
+        <!-- <div id="questions"><p>Questions Placeholder</p></div> -->
+        <button id="a" onclick="checkAnswer('a')">A</button>
+        <button id="b" onclick="checkAnswer('b')">B</button>
+        <button id="c" onclick="checkAnswer('c')">C</button>
+        <button id="d" onclick="checkAnswer('d')">D</button>
+        <div id="result"></div>
+        <div class="option_list">
+          <div class="option">
+            <span>A</span>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
