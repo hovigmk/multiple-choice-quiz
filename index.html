@@ -16,26 +16,30 @@
       <header>
         <div class="Quiz Questions">Quiz Questions</div>
         <!-- breaking down the timer box for styling -->
-        <div class="timer">
-          <div class="timer text">Time left: 60</div>
+        <div id="timerDisplay">
+          <div class="timertext">Time left:</div>
         </div>
       </header>
       <section>
-        <div class="que_text">
-          <span>Question 1</span>
-        </div>
+        <div class="question-list"></div>
         <!-- <div id="questions"><p>Questions Placeholder</p></div> -->
         <button id="a" onclick="checkAnswer('a')">A</button>
         <button id="b" onclick="checkAnswer('b')">B</button>
         <button id="c" onclick="checkAnswer('c')">C</button>
         <button id="d" onclick="checkAnswer('d')">D</button>
-        <div id="result"></div>
-        <div class="option_list">
-          <div class="option">
-            <span>A</span>
-          </div>
+
+        <div id="incorrect"></div>
+        <div id="correct"></div>
+        <div class="After-game">
+          <h1>All Done!</h1>
+          <div id="score"></div>
+          <h1>Enter your initials to save your score</h1>
+          <label for="initials">initials:</label>
+          <input type="text" id="initials" name="initials" required />
+          <input type="submit" />
         </div>
       </section>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

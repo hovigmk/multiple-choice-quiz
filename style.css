@@ -1,5 +1,6 @@
 body {
   background-color: #05c5ff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .start_btn {
@@ -9,6 +10,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.start_btn button:hover {
+  background: #05c5ff;
+}
 
 .start_btn button {
   font-size: 25px;
@@ -17,6 +21,5 @@ body {
   cursor: pointer;
   outline: none;
   border-radius: 15em;
-  border-color: whi;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
