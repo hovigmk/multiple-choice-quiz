@@ -11,19 +11,31 @@
     />
   </head>
   <body>
-    <div class="start_btn"><button>Start Quiz</button></div>
+    <div class="container">
+    <div class="start_btn"><button id="start_btn">Start Quiz</button></div>
     <div class="quiz-box">
       <header>
-        <div class="Quiz Questions">Quiz Questions</div>
+        <div id="Quiz-Questions" class="hide">
+          <h1 id="questions"></h1>
+          <div id="options" class="options"></div>
+        </div>
+
+        <div class="timerdisplay" id="timerdisplay"> Time Left: </div>
+       
+        <div id="gameover" class="hide">
+            <h2>All Done! your score is <span id="score"></span></h2>
+            <p>Enter your initials to save your score <input type="text" id="initials"
+            name="initials" required/> <button id="submit">Submit</button></p>
+        </div>
         <!-- breaking down the timer box for styling -->
-        <div id="timerDisplay">
+        <!-- <div id="timerDisplay">
           <div class="timertext">Time left:</div>
         </div>
       </header>
       <section>
         <div class="question-list"></div>
         <!-- <div id="questions"><p>Questions Placeholder</p></div> -->
-        <button id="a" onclick="checkAnswer('a')">A</button>
+        <!-- <button id="a" onclick="checkAnswer('a')">A</button>
         <button id="b" onclick="checkAnswer('b')">B</button>
         <button id="c" onclick="checkAnswer('c')">C</button>
         <button id="d" onclick="checkAnswer('d')">D</button>
@@ -39,7 +51,9 @@
           <input type="submit" />
         </div>
       </section>
-    </div>
+    </div> --> 
+</div>
     <script src="script.js"></script>
+    <script src="questions.js"></script>
   </body>
 </html>
