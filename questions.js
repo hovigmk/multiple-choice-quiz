@@ -44,8 +44,12 @@ var questions = [
     correct: "It is an ordered list of values",
   },
   {
-    question: "Which of the following is not javascript data types?"[
-      ("Null type", "Undefined type", "Number type", "All of the mentioned")
+    question: "Which of the following is not javascript data types?",
+    options: [
+      "Null type",
+      "Undefined type",
+      "Number type",
+      "All of the mentioned",
     ],
     correct: "All of the mentioned",
   },
