@@ -49,6 +49,7 @@ function questionclick(event) {
 
   if (buttonEl.value !== questions[questionindex].correct) {
     time -= 15;
+    isQuestionCorrect("wrong");
   }
   if (time < 0) {
     time = 0;
@@ -60,6 +61,7 @@ function questionclick(event) {
     quizEnd();
   } else {
     getQuestion();
+    isQuestionCorrect("correct");
   }
 }
 
@@ -118,3 +120,10 @@ function submitscore() {
 
 //   generateHighscores();
 // }
+
+if (buttonEl.value !== questions[questionindex].correct) {
+  time -= 15;
+  isQuestionCorrect("correct");
+} else {
+  isQuestionCorrect("wrong");
+}
