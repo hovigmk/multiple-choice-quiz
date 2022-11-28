@@ -9,6 +9,7 @@ var submit = document.getElementById("submit");
 var start = document.getElementById("start_btn");
 var initial = document.getElementById("initials");
 var scoreEl = document.getElementById("score");
+var resultEL = document.getElementById("result");
 start.addEventListener("click", startquiz);
 submit.addEventListener("click", submitscore);
 function startquiz() {
@@ -50,7 +51,10 @@ function questionclick(event) {
   if (buttonEl.value !== questions[questionindex].correct) {
     time -= 15;
     isQuestionCorrect("wrong");
+  } else {
+    isQuestionCorrect("correct");
   }
+
   if (time < 0) {
     time = 0;
   }
@@ -61,7 +65,6 @@ function questionclick(event) {
     quizEnd();
   } else {
     getQuestion();
-    isQuestionCorrect("correct");
   }
 }
 
@@ -123,6 +126,8 @@ function submitscore() {
 
 function isQuestionCorrect(answer) {
   if (answer == "correct") {
+    resultEL.innerHTML = answer;
   } else if (answer == "wrong") {
+    resultEL.innerHTML = answer;
   }
 }
