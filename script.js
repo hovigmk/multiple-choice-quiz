@@ -121,9 +121,8 @@ function submitscore() {
 //   generateHighscores();
 // }
 
-if (buttonEl.value !== questions[questionindex].correct) {
-  time -= 15;
-  isQuestionCorrect("correct");
-} else {
-  isQuestionCorrect("wrong");
+function isQuestionCorrect(answer) {
+  if (answer == "correct") {
+  } else if (answer == "wrong") {
+  }
 }
