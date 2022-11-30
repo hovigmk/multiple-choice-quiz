@@ -10,8 +10,15 @@ var start = document.getElementById("start_btn");
 var initial = document.getElementById("initials");
 var scoreEl = document.getElementById("score");
 var resultEL = document.getElementById("result");
+var scoreslistEL = document.getElementById("scoreslist");
+var scoresinitialsEL = document.getElementById("scoresinitials");
+var playagainel = document.getElementById("playAgain");
+var clearhighscoreEl = document.getElementById("cleatHighscore");
+playagainel.addEventListener("click", startquiz);
+clearhighscoreEl.addEventListener("click", clearScore);
 start.addEventListener("click", startquiz);
 submit.addEventListener("click", submitscore);
+
 function startquiz() {
   start.classList.add("hide");
   questionsEl.classList.remove("hide");
@@ -59,7 +66,6 @@ function questionclick(event) {
     time = 0;
   }
 
-  // setTimeout(function () {});
   questionindex++;
   if (time <= 0 || questionindex === questions.length) {
     quizEnd();
@@ -77,6 +83,7 @@ function quizEnd() {
   questionsEl.classList.add("hide");
   timer.classList.add("hide");
   gameoverEl.classList.remove("hide");
+  resultEL.classList.add("hide");
 }
 
 function clockTick() {
@@ -97,22 +104,23 @@ function submitscore() {
   console.log(score);
   highscores.push(score);
   localStorage.setItem("highscores", JSON.stringify(highscores));
-  scoreEl.textContent = score.score;
+  scoreEl.innerHTML = score.score;
+  generateHighscores();
 }
 
-// userscore();
-// function generateHighscores() {
-//   highscoreDisplayName.innerHTML = "";
-//   highscoreDisplayScore.innerHTML = "";
-//   var savedhighscores = JSON.parse(localStorage.getItem("highscores")) || [];
-//   for (i = 0; i < savedhighscores.length; i++) {
-//     var newNameSpan = document.createElement("li");
-//     var newScoreSpan = document.createElement("li");
-//     newNameSpan.textContent = highscores[i].name;
-//     newScoreSpan.textContent = highscores[i].score;
-//     highscoreDisplayName.appendChild(newNameSpan);
-//     highscoreDisplayScore.appendChild(newScoreSpan);
-//   }
+function generateHighscores() {
+  scoresinitials.innerHTML = "";
+  scoreslist.innerHTML = "";
+  var savedhighscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  for (i = 0; i < savedhighscores.length; i++) {
+    var newNameSpan = document.createElement("li");
+    var newScoreSpan = document.createElement("li");
+    newNameSpan.textContent = savedhighscores[i].initials;
+    newScoreSpan.textContent = savedhighscores[i].score;
+    scoresinitialsEL.appendChild(newNameSpan);
+    scoreslistEL.appendChild(newScoreSpan);
+  }
+}
 // }
 // function showHighscore() {
 //   startQuizDiv.style.display = "none";
@@ -130,4 +138,14 @@ function isQuestionCorrect(answer) {
   } else if (answer == "wrong") {
     resultEL.innerHTML = answer;
   }
+}
+
+function clearScore() {
+  window.localStorage.clear();
+  scoresinitialsEL.textContent = "";
+  scoreslistEL.textContent = "";
+}
+
+function playagain() {
+  startquiz();
 }

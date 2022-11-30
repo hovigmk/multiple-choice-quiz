@@ -12,24 +12,39 @@
   </head>
   <body>
     <div class="container">
-    <div class="start_btn"><button id="start_btn">Start Quiz</button></div>
-    <div class="quizcontainer" id="quizcontainer">
-      <header>
+      <h1>
+        You will be presented with multiple choice quiz regarding Javascript.
+        Each wrong answer causes 15 seconds to be subtracted from your time. At
+        the end the time you have left is your score.
+      </h1>
+      <div class="start_btn"><button id="start_btn">Start Quiz</button></div>
+      <div class="quizcontainer" id="quizcontainer">
         <div id="quizquestions" class="hide">
           <h1 id="questionsheader"></h1>
           <div id="options" class="options"></div>
         </div>
 
-        <div class="timerdisplay hide" id="timerdisplay"> Time Left: </div>
-       
-        <div id="gameover" class="hide">
-            <h2>All Done! your score is <span id="score"></span></h2>
-            <p>Enter your initials to save your score <input type="text" id="initials"
-            name="initials" required/> <button id="submit">Submit</button></p>
+        <div class="timerdisplay hide" id="timerdisplay">Time Left:</div>
+      </div>
+      <div id="gameover" class="hide">
+        <h2>All Done! your score is <span id="score"></span></h2>
+        <p>
+          Enter your initials to save your score
+          <input type="text" id="initials" name="initials" required />
+          <button id="submit">Submit</button>
+        </p>
+        <div class="row">
+          <div id="scoreslist" class="column"></div>
+          <div id="scoresinitials" class="column"></div>
         </div>
-</div>
-<div id="result" class = "result"></div>
-</div>
+
+        <div id="endgameoptions" class="endgameoptions">
+          <button id="playAgain">Play Again</button>
+          <button id="clearHighscore">Clear Highscores</button>
+        </div>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
     <script src="questions.js"></script>
     <script src="script.js"></script>
   </body>
