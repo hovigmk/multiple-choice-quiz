@@ -22,7 +22,7 @@ THEN I can save my initials and score
 The repo link is:
 https://github.com/hovigmk/multiple-choice-quiz
 
-The deployed link is:
+The deployed link is: https://hovigmk.github.io/multiple-choice-quiz/
 
 Screenshots of the process:
 ![screenshot of usage](./images/SS1.jpg)
