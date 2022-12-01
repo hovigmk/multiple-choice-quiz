@@ -13,8 +13,10 @@ var resultEL = document.getElementById("result");
 var scoreslistEL = document.getElementById("scoreslist");
 var scoresinitialsEL = document.getElementById("scoresinitials");
 var playagainel = document.getElementById("playAgain");
-var clearhighscoreEl = document.getElementById("cleatHighscore");
-playagainel.addEventListener("click", startquiz);
+var clearhighscoreEl = document.getElementById("clearHighscore");
+var endgameoptionsEl = document.querySelector("endgameoptions");
+var gameoverEl = document.querySelector("gameover");
+playagainel.addEventListener("click", playagain);
 clearhighscoreEl.addEventListener("click", clearScore);
 start.addEventListener("click", startquiz);
 submit.addEventListener("click", submitscore);
@@ -147,5 +149,9 @@ function clearScore() {
 }
 
 function playagain() {
+  gameoverEl.classList.add("hide");
+  endgameoptionsEl.classList.add("hide");
+  questionindex = 0;
+  time = questions.length * 15;
   startquiz();
 }
