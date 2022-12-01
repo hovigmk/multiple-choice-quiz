@@ -16,15 +16,18 @@ var playagainel = document.getElementById("playAgain");
 var clearhighscoreEl = document.getElementById("clearHighscore");
 var endgameoptionsEl = document.getElementById("endgameoptions");
 var gameoverEl = document.getElementById("gameover");
+var quizrulesEl = document.getElementById("quiz-rules");
 playagainel.addEventListener("click", playagain);
 clearhighscoreEl.addEventListener("click", clearScore);
 start.addEventListener("click", startquiz);
 submit.addEventListener("click", submitscore);
 
+// starts the quiz and sets the time
 function startquiz() {
   start.classList.add("hide");
   questionsEl.classList.remove("hide");
   timer.classList.remove("hide");
+  quizrulesEl.classList.add("hide");
 
   timerid = setInterval(clockTick, 1000);
 
@@ -33,6 +36,7 @@ function startquiz() {
   getQuestion();
 }
 
+// links with the questions.js file and sets the index and loops over and creates button for options
 function getQuestion() {
   var currentQuestion = questions[questionindex];
   var headerEL = document.getElementById("questionsheader");
@@ -51,6 +55,7 @@ function getQuestion() {
   }
 }
 
+// checks if the user chose the right answer from the multiple choice
 function questionclick(event) {
   var buttonEl = event.target;
   if (!buttonEl.matches(".choice")) {
@@ -69,6 +74,9 @@ function questionclick(event) {
   }
 
   questionindex++;
+
+  // if the questions are done or the time runs out then it lets the user answer the last question
+  // and takes them to the final screen
   if (time <= 0 || questionindex === questions.length) {
     quizEnd();
   } else {
@@ -76,11 +84,13 @@ function questionclick(event) {
   }
 }
 
+// sets the screen for the final phase of the quiz which is saving the score
 function quizEnd() {
   clearInterval(timerid);
   var gameoverEl = document.getElementById("gameover");
   var initial = document.getElementById("initials");
   var score = document.getElementById("score");
+
   start.classList.add("hide");
   questionsEl.classList.add("hide");
   timer.classList.add("hide");
@@ -97,6 +107,7 @@ function clockTick() {
   }
 }
 
+//take user's input and the score and saves them in the local storage
 function submitscore() {
   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
   var score = {
@@ -110,6 +121,7 @@ function submitscore() {
   generateHighscores();
 }
 
+// displays the scores to the user
 function generateHighscores() {
   scoresinitials.innerHTML = "";
   scoreslist.innerHTML = "";
@@ -123,17 +135,8 @@ function generateHighscores() {
     scoreslistEL.appendChild(newScoreSpan);
   }
 }
-// }
-// function showHighscore() {
-//   startQuizDiv.style.display = "none";
-//   gameoverDiv.style.display = "none";
-//   highscoreContainer.style.display = "flex";
-//   highscoreDiv.style.display = "block";
-//   endGameBtns.style.display = "flex";
 
-//   generateHighscores();
-// }
-
+// lets the user know if their choice was right or wrong on each question
 function isQuestionCorrect(answer) {
   if (answer == "correct") {
     resultEL.innerHTML = answer;
@@ -142,12 +145,14 @@ function isQuestionCorrect(answer) {
   }
 }
 
+// this function clears the list of the saved scores
 function clearScore() {
   window.localStorage.clear();
   scoresinitialsEL.textContent = "";
   scoreslistEL.textContent = "";
 }
 
+// this function gives user the option to play again
 function playagain() {
   gameoverEl.classList.add("hide");
   endgameoptionsEl.classList.add("hide");

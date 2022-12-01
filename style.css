@@ -3,13 +3,14 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.start_btn {
+.container {
   position: absolute;
   position: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .start_btn button:hover {
   background: #05c5ff;
 }
@@ -28,21 +29,12 @@ body {
   display: none;
 }
 
-.quizcontainer {
-  position: absolute;
-  position: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .result {
   position: absolute;
   position: center;
-  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .column {
   float: left;
   width: 50%;
@@ -53,4 +45,8 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+.timerdisplay {
+  font-size: 20px;
 }
